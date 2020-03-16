@@ -24,7 +24,7 @@ export class ProfileService {
 
   normalizeRecord(rec: any, index: number): UserProfile {
     return {
-      id: index,
+      id: Number(index) + 1,
       firstName: rec.name.first,
       lastName: rec.name.last,
       city: rec.location.city,
@@ -37,16 +37,13 @@ export class ProfileService {
   }
 
   getUserProfiles(userId = null) {
-    const params = { ...this.params };
-    if (userId !== null) {
-      params.page = String(userId);
-      params.results = '1';
-    }
     return this.http
-      .get('/api/profiles', { params })
+      .get('/api/profiles', { params: this.params })
       .pipe(
         map(({ results }: { results: any[] }) =>
-          results.map(this.normalizeRecord)
+          results
+            .map(this.normalizeRecord)
+            .filter(user => (userId !== null ? user.id === userId : true))
         )
       );
   }
