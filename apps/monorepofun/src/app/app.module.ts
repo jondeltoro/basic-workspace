@@ -26,6 +26,14 @@ import { InfoComponent } from './info.component';
           component: InfoComponent
         },
         {
+          path: 'profiles-grid',
+          pathMatch: 'full',
+          loadChildren: () =>
+            import('@monofunworkspace/feature-profiles-grid').then(
+              module => module.FeatureProfilesGridModule
+            )
+        },
+        {
           path: 'profile-details',
           pathMatch: 'full',
           loadChildren: () =>
