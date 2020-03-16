@@ -1,3 +1,6 @@
 <h1 class="mat-display-1">Profiles Grid</h1>
 
-<monofunworkspace-profile-grid [users]="userProfileList"></monofunworkspace-profile-grid>
+<monofunworkspace-profile-grid
+  [users]="userProfileList"
+  (profileSelected)="handleProfileSelection($event)"
+></monofunworkspace-profile-grid>

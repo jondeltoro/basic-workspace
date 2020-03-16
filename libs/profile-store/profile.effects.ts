@@ -48,10 +48,16 @@ export class ProfileEffects {
       ),
       switchMap(([{ userId }, { userProfileList }]) => {
         // check if profile is already in the store (userProfileList)
-        if (userProfileList && userProfileList[userId]) {
-          profileActions.getProfileSuccess({
-            profile: userProfileList[userId]
-          });
+        const userIndex =
+          userProfileList &&
+          userProfileList.findIndex(user => user.id === userId);
+        if (userIndex) {
+          console.log(userIndex);
+          return of(
+            profileActions.getProfileSuccess({
+              profile: userProfileList[userIndex]
+            })
+          );
         } else {
           // if not in the store then get it using service
           return this.handleGetUserProfile(userId);
