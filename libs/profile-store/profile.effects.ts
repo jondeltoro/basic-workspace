@@ -52,7 +52,6 @@ export class ProfileEffects {
           userProfileList &&
           userProfileList.findIndex(user => user.id === userId);
         if (userIndex) {
-          console.log(userIndex);
           return of(
             profileActions.getProfileSuccess({
               profile: userProfileList[userIndex]
