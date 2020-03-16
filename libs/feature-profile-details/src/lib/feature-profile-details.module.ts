@@ -10,6 +10,11 @@ import { UiModule } from '@monofunworkspace/ui';
     UiModule,
     RouterModule.forChild([
       {
+        path: ':id',
+        pathMatch: 'full',
+        component: ProfileDetailsComponent
+      },
+      {
         path: '',
         pathMatch: 'full',
         component: ProfileDetailsComponent

@@ -35,7 +35,6 @@ import { InfoComponent } from './info.component';
         },
         {
           path: 'profile-details',
-          pathMatch: 'full',
           loadChildren: () =>
             import('@monofunworkspace/feature-profile-details').then(
               module => module.FeatureProfileDetailsModule
