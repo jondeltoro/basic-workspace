@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as ProfileActions from '../../../../profile-store/profile.actions';
+import * as profileActions from '../../../../profile-store/profile.actions';
 import { profileFeatureKey } from '../../../../profile-store/profile.reducers';
 import { Observable, Subscription } from 'rxjs';
 import { UserProfile } from '../models';
@@ -23,9 +23,9 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy {
 
     const id = activatedroute.snapshot.params.id;
     if (!id) {
-      store.dispatch(ProfileActions.getRandomProfile());
+      store.dispatch(profileActions.getRandomProfile());
     } else {
-      store.dispatch(ProfileActions.getProfile({ id }));
+      store.dispatch(profileActions.getProfile({ id }));
     }
   }
 
@@ -37,6 +37,6 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.userProfileSelectorSubscription.unsubscribe();
-    this.store.dispatch(ProfileActions.resetProfile());
+    this.store.dispatch(profileActions.resetProfile());
   }
 }

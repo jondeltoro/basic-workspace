@@ -7,11 +7,11 @@ import {
   map,
   catchError,
   withLatestFrom,
-  concatMap,
-  tap
+  concatMap
 } from 'rxjs/operators';
 
 import * as profileActions from './profile.actions';
+import * as profileListActions from './profile-list.actions';
 import * as fromProfile from './profile.reducers';
 import { ProfileService } from './profile.service';
 import {
@@ -60,6 +60,20 @@ export class ProfileEffects {
     )
   );
 
+  getUserProfileListRequest$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(profileListActions.getProfileList),
+      switchMap(() => {
+        return this.profileService.getUserProfiles().pipe(
+          map((users: UserProfile[]) =>
+            profileListActions.getProfileListSuccess({ profileList: users })
+          ),
+          catchError(error => of(profileListActions.getProfileListError(error)))
+        );
+      })
+    )
+  );
+
   private handleGetUserProfile(id: number) {
     return this.profileService.getUserProfiles(id).pipe(
       map((users: UserProfile[]) =>
@@ -75,4 +89,3 @@ export class ProfileEffects {
     private profileService: ProfileService
   ) {}
 }
-//VwithLatestFrom
