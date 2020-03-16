@@ -18,10 +18,7 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy {
   userProfile: UserProfile = null;
   userProfileSelectorSubscription: Subscription;
 
-  constructor(
-    private store: Store<any>,
-    private activatedroute: ActivatedRoute
-  ) {
+  constructor(private store: Store<any>, activatedroute: ActivatedRoute) {
     this.userProfileSelector$ = store.select(profileFeatureKey);
 
     const id = activatedroute.snapshot.params.id;
