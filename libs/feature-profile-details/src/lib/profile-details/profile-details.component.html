@@ -2,4 +2,7 @@
 
 <!-- Code Here -->
 <!-- Use the 'profile card' UI component HERE to display the user profile details  -->
-<monofunworkspace-profile-card></monofunworkspace-profile-card>
+<monofunworkspace-profile-card
+  *ngIf="userProfile"
+  [user]="userProfile"
+></monofunworkspace-profile-card>
