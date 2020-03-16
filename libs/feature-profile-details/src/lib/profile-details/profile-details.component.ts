@@ -21,11 +21,11 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy {
   constructor(private store: Store<any>, activatedroute: ActivatedRoute) {
     this.userProfileSelector$ = store.select(profileFeatureKey);
 
-    const id = activatedroute.snapshot.params.id;
-    if (!id) {
+    const userId = activatedroute.snapshot.params.id;
+    if (!userId) {
       store.dispatch(profileActions.getRandomProfile());
     } else {
-      store.dispatch(profileActions.getProfile({ id }));
+      store.dispatch(profileActions.getProfile({ userId }));
     }
   }
 

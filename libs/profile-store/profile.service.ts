@@ -36,10 +36,10 @@ export class ProfileService {
     };
   }
 
-  getUserProfiles(id = null) {
+  getUserProfiles(userId = null) {
     const params = { ...this.params };
-    if (id !== null) {
-      params.page = String(id);
+    if (userId !== null) {
+      params.page = String(userId);
       params.results = '1';
     }
     return this.http

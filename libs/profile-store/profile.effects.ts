@@ -46,15 +46,15 @@ export class ProfileEffects {
           )
         )
       ),
-      switchMap(([{ id }, { userProfileList }]) => {
+      switchMap(([{ userId }, { userProfileList }]) => {
         // check if profile is already in the store (userProfileList)
-        if (userProfileList && userProfileList[id]) {
+        if (userProfileList && userProfileList[userId]) {
           profileActions.getProfileSuccess({
-            profile: userProfileList[id]
+            profile: userProfileList[userId]
           });
         } else {
           // if not in the store then get it using service
-          return this.handleGetUserProfile(id);
+          return this.handleGetUserProfile(userId);
         }
       })
     )
@@ -74,8 +74,8 @@ export class ProfileEffects {
     )
   );
 
-  private handleGetUserProfile(id: number) {
-    return this.profileService.getUserProfiles(id).pipe(
+  private handleGetUserProfile(userId: number) {
+    return this.profileService.getUserProfiles(userId).pipe(
       map((users: UserProfile[]) =>
         profileActions.getProfileSuccess({ profile: users[0] })
       ),

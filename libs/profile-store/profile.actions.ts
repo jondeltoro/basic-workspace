@@ -3,7 +3,7 @@ import { UserProfile } from '@monofunworkspace/feature-profile-details';
 
 export const getProfile = createAction(
   '[Profile Details Component] Get user profile request',
-  props<{ id: number; userProfileList?: UserProfile[] }>()
+  props<{ userId: number; userProfileList?: UserProfile[] }>()
 );
 
 export const getRandomProfile = createAction(
