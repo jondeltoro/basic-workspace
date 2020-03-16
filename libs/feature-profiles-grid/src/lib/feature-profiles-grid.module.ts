@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { UiModule } from '@monofunworkspace/ui';
-import { ProfilesGridComponent } from './profiles-grid/profiles-grid.component';
+import { ProfilesListComponent } from './profiles-list/profiles-list.component';
 
 @NgModule({
   imports: [
@@ -12,11 +12,11 @@ import { ProfilesGridComponent } from './profiles-grid/profiles-grid.component';
       {
         path: '',
         pathMatch: 'full',
-        component: ProfilesGridComponent
+        component: ProfilesListComponent
       }
     ]),
     UiModule
   ],
-  declarations: [ProfilesGridComponent]
+  declarations: [ProfilesListComponent]
 })
 export class FeatureProfilesGridModule {}
