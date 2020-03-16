@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { UiModule } from '@monofunworkspace/ui';
+export * from './models';
 
 @NgModule({
   imports: [
