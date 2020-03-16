@@ -1,7 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as ProfileActions from './profile.actions';
-import { ProfileState } from './../feature-profile-details/src/lib/models/profile-state.model';
-// import { UserProfile } from 'libs/feature-profile-details/src/lib/models';
+import { ProfileState } from '@monofunworkspace/feature-profile-details';
 
 export const profileFeatureKey = 'profile';
 

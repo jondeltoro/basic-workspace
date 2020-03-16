@@ -4,7 +4,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { UserProfile } from 'libs/feature-profile-details/src/lib/models';
+
+import { UserProfile } from '@monofunworkspace/feature-profile-details';
 
 @Injectable({
   providedIn: 'root'

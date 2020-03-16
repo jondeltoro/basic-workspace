@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { UserProfile } from '../feature-profile-details/src/lib/models/profile.model';
+import { UserProfile } from '@monofunworkspace/feature-profile-details';
 
 export const getProfile = createAction(
   '[Profile Details Component] Get user profile request',

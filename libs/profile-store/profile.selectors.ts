@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { ProfileState } from './../feature-profile-details/src/lib/models/profile-state.model';
+import { ProfileState } from '@monofunworkspace/feature-profile-details';
 import { profileFeatureKey } from './profile.reducers';
 
 export const getUserProfileState = createFeatureSelector<ProfileState>(
