@@ -1,0 +1,10 @@
+{
+  "/api/profiles": {
+    "target": "https://randomuser.me",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/profiles": "api"
+    }
+  }
+}
