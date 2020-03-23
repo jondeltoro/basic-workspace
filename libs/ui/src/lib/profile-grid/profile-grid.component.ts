@@ -1,4 +1,11 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
+
 import { UserProfile } from '../../../../feature-profile-details/src/lib/models';
 
 @Component({
@@ -9,13 +16,11 @@ import { UserProfile } from '../../../../feature-profile-details/src/lib/models'
 })
 export class ProfileGridComponent {
   @Input() users: UserProfile[];
+  @Output() profileSelected = new EventEmitter<number>();
 
   displayedColumns: string[] = ['pictureUrl', 'name', 'email'];
 
-  constructor() { }
-
-  goToProfile() {
-    // Write code to navigate to the profile details page
+  goToProfile(userId: number) {
+    this.profileSelected.emit(userId);
   }
-
 }

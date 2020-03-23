@@ -3,12 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { UiModule } from '@monofunworkspace/ui';
+export * from './models';
 
 @NgModule({
   imports: [
     CommonModule,
     UiModule,
     RouterModule.forChild([
+      {
+        path: ':id',
+        pathMatch: 'full',
+        component: ProfileDetailsComponent
+      },
       {
         path: '',
         pathMatch: 'full',
